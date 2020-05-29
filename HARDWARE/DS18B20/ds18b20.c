@@ -1,23 +1,13 @@
 #include "ds18b20.h"
 #include "delay.h"	
-//////////////////////////////////////////////////////////////////////////////////	 
-//本程序只供学习使用，未经作者许可，不得用于其它任何用途
-//ALIENTEK STM32F407开发板
-//DS18B20驱动代码	   
-//正点原子@ALIENTEK
-//技术论坛:www.openedv.com
-//创建日期:2014/5/7
-//版本：V1.0
-//版权所有，盗版必究。
-//Copyright(C) 广州市星翼电子科技有限公司 2014-2024
-//All rights reserved										  
-//////////////////////////////////////////////////////////////////////////////////
-  
+
+
+/* DS18B20驱动代码 */
 
 //复位DS18B20
 void DS18B20_Rst(void)	   
 {                 
-	DS18B20_IO_OUT(); //SET PG11 OUTPUT
+	DS18B20_IO_OUT(); //SET PE15 OUTPUT
   DS18B20_DQ_OUT=0; //拉低DQ
   delay_us(750);    //拉低750us
   DS18B20_DQ_OUT=1; //DQ=1 
@@ -29,7 +19,7 @@ void DS18B20_Rst(void)
 u8 DS18B20_Check(void) 	   
 {   
 	u8 retry=0;
-	DS18B20_IO_IN();//SET PG11 INPUT	 
+	DS18B20_IO_IN();//SET PE15 INPUT	 
     while (DS18B20_DQ_IN&&retry<200)
 	{
 		retry++;
@@ -50,11 +40,11 @@ u8 DS18B20_Check(void)
 u8 DS18B20_Read_Bit(void) 			 // read one bit
 {
   u8 data;
-	DS18B20_IO_OUT();//SET PG11 OUTPUT
+	DS18B20_IO_OUT();//SET PE15 OUTPUT
   DS18B20_DQ_OUT=0; 
 	delay_us(2);
   DS18B20_DQ_OUT=1; 
-	DS18B20_IO_IN();//SET PG11 INPUT
+	DS18B20_IO_IN();//SET PE15 INPUT
 	delay_us(12);
 	if(DS18B20_DQ_IN)data=1;
   else data=0;	 
@@ -80,7 +70,7 @@ void DS18B20_Write_Byte(u8 dat)
  {             
     u8 j;
     u8 testb;
-	  DS18B20_IO_OUT();//SET PG11 OUTPUT;
+	  DS18B20_IO_OUT();//SET PE15 OUTPUT;
     for (j=1;j<=8;j++) 
 	{
         testb=dat&0x01;
@@ -115,11 +105,10 @@ void DS18B20_Start(void)// ds1820 start convert
 u8 DS18B20_Init(void)
 {
 	GPIO_InitTypeDef  GPIO_InitStructure;
-
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOG, ENABLE);//使能GPIOG时钟
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);//使能GPIOG时钟
 
   //GPIOG9
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;//50MHz

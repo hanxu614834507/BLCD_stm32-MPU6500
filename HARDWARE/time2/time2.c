@@ -29,7 +29,7 @@ void TIM2_Configuration(void)
     TIM_DeInit(TIM2);
     TIM_TimeBaseStructure.TIM_Period=9;		 								/* 自动重装载寄存器周期的值(计数值) */
     /* 累计 TIM_Period个频率后产生一个更新或者中断 */
-    TIM_TimeBaseStructure.TIM_Prescaler= 7199;				    /* 时钟预分频数 72M/72 */ //100us
+    TIM_TimeBaseStructure.TIM_Prescaler= 16799;				    /* 时钟预分频数 168M/16800 */ //100us
     TIM_TimeBaseStructure.TIM_ClockDivision=TIM_CKD_DIV1; 		/* 采样分频 */
     TIM_TimeBaseStructure.TIM_CounterMode=TIM_CounterMode_Up; /* 向上计数模式 */
     TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);

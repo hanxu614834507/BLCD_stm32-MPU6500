@@ -171,11 +171,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4099</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\PWM;..\FWLIB\inc;..\HARDWARE\config;..\HARDWARE\GPIO_Init;..\HARDWARE\BLDCTIM_Init;..\HARDWARE\CAN;..\HARDWARE\KEY;..\HARDWARE\ADC;..\HARDWARE\BSP;..\HARDWARE\TIME;..\HARDWARE\time2;..\HARDWARE\CURRENT;..\HARDWARE\DS18B20;..\HARDWARE\MPU6500</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\PWM;..\FWLIB\inc;..\HARDWARE\config;..\HARDWARE\GPIO_Init;..\HARDWARE\BLDCTIM_Init;..\HARDWARE\CAN;..\HARDWARE\KEY;..\HARDWARE\ADC;..\HARDWARE\BSP;..\HARDWARE\TIME;..\HARDWARE\time2;..\HARDWARE\CURRENT;..\HARDWARE\DS18B20;..\HARDWARE\MPU6500;..\HARDWARE\TIM3</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -482,6 +482,11 @@
               <FileName>mpu6500.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\MPU6500\mpu6500.c</FilePath>
+            </File>
+            <File>
+              <FileName>time3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\TIM3\time3.c</FilePath>
             </File>
           </Files>
         </Group>

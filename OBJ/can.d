@@ -44,6 +44,7 @@
 ..\obj\can.o: ..\SYSTEM\sys\sys.h
 ..\obj\can.o: ..\HARDWARE\time2\time2.h
 ..\obj\can.o: ..\HARDWARE\config\config.h
+..\obj\can.o: ..\HARDWARE\TIM3\time3.h
 ..\obj\can.o: ..\SYSTEM\delay\delay.h
 ..\obj\can.o: ..\SYSTEM\usart\usart.h
 ..\obj\can.o: ..\HARDWARE\CURRENT\current.h

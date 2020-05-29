@@ -44,6 +44,7 @@
 ..\obj\mpu6500.o: ..\SYSTEM\sys\sys.h
 ..\obj\mpu6500.o: ..\HARDWARE\time2\time2.h
 ..\obj\mpu6500.o: ..\HARDWARE\config\config.h
+..\obj\mpu6500.o: ..\HARDWARE\TIM3\time3.h
 ..\obj\mpu6500.o: ..\SYSTEM\delay\delay.h
 ..\obj\mpu6500.o: ..\SYSTEM\usart\usart.h
 ..\obj\mpu6500.o: ..\HARDWARE\CURRENT\current.h

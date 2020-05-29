@@ -45,6 +45,7 @@
 ..\obj\gpio_init.o: ..\SYSTEM\sys\sys.h
 ..\obj\gpio_init.o: ..\HARDWARE\time2\time2.h
 ..\obj\gpio_init.o: ..\HARDWARE\config\config.h
+..\obj\gpio_init.o: ..\HARDWARE\TIM3\time3.h
 ..\obj\gpio_init.o: ..\SYSTEM\delay\delay.h
 ..\obj\gpio_init.o: ..\SYSTEM\usart\usart.h
 ..\obj\gpio_init.o: ..\HARDWARE\CURRENT\current.h

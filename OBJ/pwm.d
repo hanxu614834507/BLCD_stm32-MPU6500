@@ -44,6 +44,7 @@
 ..\obj\pwm.o: ..\SYSTEM\sys\sys.h
 ..\obj\pwm.o: ..\HARDWARE\time2\time2.h
 ..\obj\pwm.o: ..\HARDWARE\config\config.h
+..\obj\pwm.o: ..\HARDWARE\TIM3\time3.h
 ..\obj\pwm.o: ..\SYSTEM\delay\delay.h
 ..\obj\pwm.o: ..\SYSTEM\usart\usart.h
 ..\obj\pwm.o: ..\HARDWARE\CURRENT\current.h

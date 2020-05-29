@@ -13,6 +13,7 @@
 "..\obj\current.o"
 "..\obj\ds18b20.o"
 "..\obj\mpu6500.o"
+"..\obj\time3.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"

@@ -38,10 +38,10 @@
 
 #define BLDC_TIM_PWM_FREQ               20000 // PWM频率
 
-// 定义定时器预分频，定时器实际时钟频率为：84MHz/（BLDC_TIMx_PRESCALER+1）
-#define BLDC_TIM_PRESCALER              0  // 实际时钟频率为：168MHz
+// 定义定时器预分频，定时器实际时钟频率为：168MHz/（BLDC_TIMx_PRESCALER+1）
+#define BLDC_TIM_PRESCALER              168-1  // 实际时钟频率为：168MHz
 
-// 定义定时器周期，当定时器开始计数到BLDC_TIMx_PERIOD值并且重复计数寄存器为0时更新定时器并生成对应事件和中断  168/(168+1)/20000
+// 定义定时器周期，当定时器开始计数到BLDC_TIMx_PERIOD值并且重复计数寄存器为0时更新定时器并生成对应事件和中断  168000000/(167+1)/20000
 #define BLDC_TIM_PERIOD                 (uint16_t)(SystemCoreClock/(BLDC_TIM_PRESCALER+1)/BLDC_TIM_PWM_FREQ)
 
 // 定义高级定时器重复计数寄存器值，

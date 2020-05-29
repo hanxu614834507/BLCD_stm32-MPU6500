@@ -19,6 +19,7 @@ extern "C" {
 #include "bsp.h"			//板级初始化
 #include "sys.h"
 #include "time2.h"
+#include "time3.h"
 #include "delay.h"
 #include "usart.h"
 #include "current.h"
@@ -107,17 +108,17 @@ typedef struct
 
 
 /************************************/
-#define LED_RED_OFF()   	GPIO_ResetBits(GPIOB, GPIO_Pin_7 );  	   //LED1 电流过载指示灯
-#define LED_RED_ON()  		GPIO_SetBits(GPIOB, GPIO_Pin_7 ); 	  
+#define LED_Current_OFF()   	GPIO_SsetBits(GPIOD, GPIO_Pin_11 );  	   //LED1 电流过载指示灯
+#define LED_Current_ON()  		GPIO_ResetBits(GPIOD, GPIO_Pin_11 ); 	  
 
-#define LED_GREEN_OFF()   	GPIO_SetBits(GPIOB, GPIO_Pin_8 );  	   //LED2 
-#define LED_GREEN_ON()  		GPIO_ResetBits(GPIOB, GPIO_Pin_8 ); 	  
+#define LED_RUN_OFF()   	GPIO_SetBits(GPIOD, GPIO_Pin_12 );  	   //LED2 运行指示灯
+#define LED_RUN_ON()  		GPIO_ResetBits(GPIOD, GPIO_Pin_12 ); 	  
 
-#define LED_YELLOW_OFF()   	GPIO_ResetBits(GPIOB, GPIO_Pin_9 );  //LED3  与ECU失联指示灯 
-#define LED_YELLOW_ON()  		 GPIO_SetBits(GPIOB, GPIO_Pin_9 );  	  
+#define LED_ECU_OFF()   	GPIO_SetBits(GPID, GPIO_Pin_13 );  //LED3  与ECU失联指示灯 
+#define LED_ECU_ON()  		 GPIO_ResetBits(GPIOD, GPIO_Pin_13 );  	  
 
-#define Ctrl_Brake_OFF()   	GPIO_SetBits(GPIOD, GPIO_Pin_7 );  	  
-#define Ctrl_Brake_ON()  	GPIO_ResetBits(GPIOD, GPIO_Pin_7 ); 	  //关闭电源开关
+#define Ctrl_Brake_OFF()   	GPIO_SetBits(GPIOD, GPIO_Pin_14 );  	  
+#define Ctrl_Brake_ON()  	GPIO_ResetBits(GPIOD, GPIO_Pin_14 ); 	  //关闭电源开关
 
 
 extern const unsigned char Ascill_16[];
@@ -127,7 +128,7 @@ extern const unsigned char Ascill_16[];
 void DebugPrintf(const char *fmt,...);
 void TIM1_PWM_Init(void);
 void SendControlCmd(void);
-
+void HALL_EXTI_Callback(void);
 #ifdef __cplusplus		   //定义对CPP进行C处理 //结束部分
 }
 
